@@ -1,2 +1,2 @@
 # nvim
-My Neovim config to develop web applications
+My Neovim config to develop web applications using LUA
