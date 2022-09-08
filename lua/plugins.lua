@@ -3,6 +3,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'nvim-lua/popup.nvim'
 
   -- Simple plugins can be specified as strings
   --use '9mm/vim-closer'
@@ -18,7 +19,7 @@ return require('packer').startup(function(use)
   -- Also run code after load (see the "config" key)
   use {
     'w0rp/ale',
-    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
+    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex', 'javascript'},
     cmd = 'ALEEnable',
     config = 'vim.cmd[[ALEEnable]]'
   }
@@ -54,19 +55,35 @@ return require('packer').startup(function(use)
 
   -- Use specific branch, dependency and run lua file after load
   use {
-    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
+	  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+}
 
   -- Use dependency and run lua function after load
   use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+	  'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
   }
 
-  -- You can specify multiple plugins in a single call
-  use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
+  use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
 
-  -- You can alias plugin names
-  use {'dracula/vim', as = 'dracula'}
+use {
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v2.x",
+	requires = { 
+		"nvim-lua/plenary.nvim",
+		"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+		"MunifTanjim/nui.nvim",
+	}
+}
+
+-- You can alias plugin names
+
+use {'dracula/vim', as = 'dracula'}
+
+use 'marko-cerovac/material.nvim'
+
 end)
