@@ -3,7 +3,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  use 'neovim/nvim-lspconfig'
   use 'nvim-lua/popup.nvim'
+  use 'neovim/nvim-lspconfig'
+  use 'onsails/lspkind.nvim'
+
 
   -- Simple plugins can be specified as strings
   --use '9mm/vim-closer'
@@ -12,8 +16,16 @@ return require('packer').startup(function(use)
   -- Load on specific commands
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
+
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
+  use "windwp/nvim-ts-autotag"
 
   -- Load on a combination of conditions: specific filetypes or commands
   -- Also run code after load (see the "config" key)
@@ -38,11 +50,11 @@ return require('packer').startup(function(use)
   --}
 
   -- You can specify rocks in isolation
-  use_rocks 'penlight'
-  use_rocks {'lua-resty-http', 'lpeg'}
+  -- use_rocks 'penlight'
+  -- use_rocks {'lua-resty-http', 'lpeg'}
 
   -- Local plugins can be included
---  use '~/projects/personal/hover.nvim'
+  --  use '~/projects/personal/hover.nvim'
 
   -- Plugins can have post-install/update hooks
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
@@ -50,40 +62,47 @@ return require('packer').startup(function(use)
   -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,}
 
-  -- Post-install/update hook with call of vimscript function with argument
-  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
   -- Use specific branch, dependency and run lua file after load
   use {
-	  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-}
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- Use dependency and run lua function after load
   use {
-	  'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
   }
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
-use {
-	"nvim-neo-tree/neo-tree.nvim",
-	branch = "v2.x",
-	requires = { 
-		"nvim-lua/plenary.nvim",
-		"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-		"MunifTanjim/nui.nvim",
-	}
-}
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
 
--- You can alias plugin names
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
-use {'dracula/vim', as = 'dracula'}
+  use "lukas-reineke/indent-blankline.nvim"
 
-use 'marko-cerovac/material.nvim'
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+
+  -- You can alias plugin names
+
+  use {'dracula/vim', as = 'dracula'}
+
+  use 'marko-cerovac/material.nvim'
 
 end)
