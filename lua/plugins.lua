@@ -3,10 +3,18 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'neovim/nvim-lspconfig'
   use 'nvim-lua/popup.nvim'
   use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind.nvim'
+  use 'L3MON4D3/LuaSnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+  use { 'windwp/nvim-ts-autotag' }
 
 
   -- Simple plugins can be specified as strings
@@ -15,23 +23,21 @@ return require('packer').startup(function(use)
   -- Lazy loading:
   -- Load on specific commands
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  })
 
   -- Load on an autocommand event
   use {'andymass/vim-matchup', event = 'VimEnter'}
 
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
-
-  use "windwp/nvim-ts-autotag"
+  use { "folke/which-key.nvim" }
 
   -- Load on a combination of conditions: specific filetypes or commands
   -- Also run code after load (see the "config" key)
   use {
     'w0rp/ale',
-    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex', 'javascript'},
+    ft = { 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'vim', 'tex', 'javascript'},
     cmd = 'ALEEnable',
     config = 'vim.cmd[[ALEEnable]]'
   }
@@ -75,10 +81,7 @@ return require('packer').startup(function(use)
     config = function() require('gitsigns').setup() end
   }
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
@@ -93,11 +96,6 @@ return require('packer').startup(function(use)
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
   use "lukas-reineke/indent-blankline.nvim"
-
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }
 
   -- You can alias plugin names
 
