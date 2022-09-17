@@ -103,4 +103,6 @@ return require('packer').startup(function(use)
 
   use 'marko-cerovac/material.nvim'
 
+  use 'rmehri01/onenord.nvim'
+
 end)
