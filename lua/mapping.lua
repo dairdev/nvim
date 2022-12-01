@@ -11,8 +11,8 @@ vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
 vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 
 -- Telescope Mapping
-vim.keymap.set('n', '<leader> ff', '<Cmd>Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>', opts)
+vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>', opts)
 
--- Neotree Mapping
-vim.keymap.set('n', '<leader> e', '<Cmd>Neotree toggle <CR>', opts)
-
+-- NvimTree Mapping
+vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)

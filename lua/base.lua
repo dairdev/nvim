@@ -29,3 +29,8 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.relativenumber = true
+
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.g.mapleader = " "
