@@ -1,5 +1,6 @@
 vim.opt.termguicolors = true
-require('tokyonight').setup({
-  style = "storm"
-})
-vim.cmd[[colorscheme tokyonight]]
+--require('tokyonight').setup({
+--  style = "night"
+--})
+-- require('onenord').setup()
+vim.cmd[[colorscheme noctis]]

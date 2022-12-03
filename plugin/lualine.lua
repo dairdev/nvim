@@ -1,6 +1,7 @@
 require('lualine').setup {
+  lualine_x = { "aerial" },
   options = {
-    theme = 'tokyonight',
+    theme = 'onenord',
     component_separators = '',
     section_separators = '',
   }
