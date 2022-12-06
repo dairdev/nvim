@@ -1,7 +1,6 @@
 require('base')
 require('color')
 require('plugins')
---[[
 require('mapping')
 
 
@@ -13,6 +12,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("null-ls").setup()
 require("lsp-colors").setup()
+require("aerial").setup()
 
 local opts = { noremap = true, silent = true }
 
@@ -120,4 +120,3 @@ nvim_lsp.html.setup {
 require('nvim-ts-autotag').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
---]]
