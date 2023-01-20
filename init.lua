@@ -1,4 +1,7 @@
 -- Install packer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -432,5 +435,7 @@ cmp.setup {
   },
 }
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+local opts = { noremap = true, silent = true }
+require("nvim-tree").setup()
+vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)
+-- vim: ts=2 stts=2 sw=2 et
