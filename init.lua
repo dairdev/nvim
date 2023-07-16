@@ -169,6 +169,7 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 vim.o.termguicolors = true
 vim.cmd [[colorscheme material]]
+vim.g.material_style = "palenight"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -556,7 +557,7 @@ require("formatter").setup {
         }
       end
     },
-    }
+  }
 }
 
 -- vim: ts=2 sw=2 et
