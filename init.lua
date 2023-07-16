@@ -98,13 +98,6 @@ require('packer').startup(function(use)
 
   use 'marko-cerovac/material.nvim'
 
-  use {
-    "loctvl842/monokai-pro.nvim",
-    config = function()
-      require("monokai-pro").setup()
-    end
-  }
-
   use 'google/vim-maktaba'
   use 'google/vim-codefmt'
   use 'google/vim-glaive'
@@ -175,7 +168,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme monokai-pro]]
+vim.cmd [[colorscheme material]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -211,7 +204,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'monokai-pro',
+    theme = 'material',
     component_separators = '|',
     section_separators = '',
   },
