@@ -96,6 +96,8 @@ require('packer').startup(function(use)
   use 'MunifTanjim/prettier.nvim'
   use 'brenoprata10/nvim-highlight-colors'
 
+  use 'marko-cerovac/material.nvim'
+
   use {
     "loctvl842/monokai-pro.nvim",
     config = function()
