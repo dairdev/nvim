@@ -168,8 +168,6 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme material]]
-vim.g.material_style = "palenight"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -199,17 +197,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- Set lualine as statusline
--- See `:help lualine.txt`
-require('lualine').setup {
-  options = {
-    icons_enabled = false,
-    theme = 'material',
-    component_separators = '|',
-    section_separators = '',
-  },
-}
 
 -- Enable Comment.nvim
 require('Comment').setup()
@@ -604,7 +591,7 @@ require('material').setup({
         darker = false -- Enable higher contrast text for darker style
     },
 
-    lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
+    lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
 
     async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
@@ -612,5 +599,19 @@ require('material').setup({
 
     custom_highlights = {}, -- Overwrite highlights with your own
 })
+
+vim.cmd [[colorscheme material]]
+vim.g.material_style = "palenight"
+
+-- Set lualine as statusline
+-- See `:help lualine.txt`
+require('lualine').setup {
+  options = {
+    icons_enabled = false,
+    theme = 'material',
+    component_separators = '|',
+    section_separators = '',
+  },
+}
 
 -- vim: ts=2 sw=2 et
