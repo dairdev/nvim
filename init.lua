@@ -600,7 +600,7 @@ require('material').setup({
     custom_highlights = {}, -- Overwrite highlights with your own
 })
 
-vim.cmd [[colorscheme material]]
+vim.cmd [[colorscheme material-palenight]]
 vim.g.material_style = "palenight"
 
 -- Set lualine as statusline
