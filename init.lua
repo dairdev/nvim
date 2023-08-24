@@ -56,6 +56,8 @@ require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  use 'simrat39/symbols-outline.nvim'
+
   use {
     'akinsho/flutter-tools.nvim',
     requires = {
@@ -609,9 +611,11 @@ require('lualine').setup {
   options = {
     icons_enabled = false,
     theme = 'material',
-    component_separators = '|',
-    section_separators = '',
+    component_separators = '',
+    section_separators = { left = '', right = '' },
   },
 }
+
+require("symbols-outline").setup()
 
 -- vim: ts=2 sw=2 et
