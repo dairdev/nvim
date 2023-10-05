@@ -14,15 +14,20 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+    config = function()
+      require("fidget").setup()
+    end,
+  }
+
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     requires = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -205,10 +210,7 @@ require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = false,
-}
+require('ibl').setup()
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -552,54 +554,54 @@ require("formatter").setup {
 -- Material setup
 require('material').setup({
 
-    contrast = {
-        terminal = false, -- Enable contrast for the built-in terminal
-        sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-        floating_windows = true, -- Enable contrast for floating windows
-        cursor_line = true, -- Enable darker background for the cursor line
-    },
+  contrast = {
+    terminal = false, -- Enable contrast for the built-in terminal
+    sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+    floating_windows = true, -- Enable contrast for floating windows
+    cursor_line = true, -- Enable darker background for the cursor line
+  },
 
-    plugins = { -- Uncomment the plugins that you use to highlight them
-        -- Available plugins:
-        -- "dap",
-        -- "dashboard",
-        "gitsigns",
-        -- "hop",
-        "indent-blankline",
-        -- "lspsaga",
-        -- "mini",
-        "neogit",
-        -- "neorg",
-        "nvim-cmp",
-        -- "nvim-navic",
-        "nvim-tree",
-        "nvim-web-devicons",
-        -- "sneak",
-        "telescope",
-        -- "trouble",
-        -- "which-key",
-    },
+  plugins = { -- Uncomment the plugins that you use to highlight them
+    -- Available plugins:
+    -- "dap",
+    -- "dashboard",
+    "gitsigns",
+    -- "hop",
+    "indent-blankline",
+    -- "lspsaga",
+    -- "mini",
+    "neogit",
+    -- "neorg",
+    "nvim-cmp",
+    -- "nvim-navic",
+    "nvim-tree",
+    "nvim-web-devicons",
+    -- "sneak",
+    "telescope",
+    -- "trouble",
+    -- "which-key",
+  },
 
-    disable = {
-        colored_cursor = false, -- Disable the colored cursor
-        borders = false, -- Disable borders between verticaly split windows
-        background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-        term_colors = false, -- Prevent the theme from setting terminal colors
-        eob_lines = false -- Hide the end-of-buffer lines
-    },
+  disable = {
+    colored_cursor = false, -- Disable the colored cursor
+    borders = false, -- Disable borders between verticaly split windows
+    background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+    term_colors = false, -- Prevent the theme from setting terminal colors
+    eob_lines = false -- Hide the end-of-buffer lines
+  },
 
-    high_visibility = {
-        lighter = false, -- Enable higher contrast text for lighter style
-        darker = false -- Enable higher contrast text for darker style
-    },
+  high_visibility = {
+    lighter = false, -- Enable higher contrast text for lighter style
+    darker = false -- Enable higher contrast text for darker style
+  },
 
-    lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
+  lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
 
-    async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
+  async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
-    custom_colors = nil, -- If you want to override the default colors, set this to a function
+  custom_colors = nil, -- If you want to override the default colors, set this to a function
 
-    custom_highlights = {}, -- Overwrite highlights with your own
+  custom_highlights = {}, -- Overwrite highlights with your own
 })
 
 vim.cmd [[colorscheme material-palenight]]
