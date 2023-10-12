@@ -76,6 +76,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
   use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use 'romgrk/barbar.nvim'
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -104,6 +105,7 @@ require('packer').startup(function(use)
   use 'brenoprata10/nvim-highlight-colors'
 
   use 'marko-cerovac/material.nvim'
+  use 'Mofiqul/dracula.nvim'
 
   use 'google/vim-maktaba'
   use 'google/vim-codefmt'
@@ -604,20 +606,25 @@ require('material').setup({
   custom_highlights = {}, -- Overwrite highlights with your own
 })
 
-vim.cmd [[colorscheme material-palenight]]
-vim.g.material_style = "palenight"
+local dracula = require("dracula")
+dracula.setup()
+
+vim.cmd [[colorscheme dracula]]
+-- vim.g.material_style = "deep ocean"
 
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'material',
+    theme = 'dracula-nvim',
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
 }
 
 require("symbols-outline").setup()
+
+require'barbar'.setup()
 
 -- vim: ts=2 sw=2 et
