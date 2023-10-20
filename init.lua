@@ -53,6 +53,8 @@ require('packer').startup(function(use)
 
   use { 'mhartington/formatter.nvim' }
 
+  use { 'folke/todo-comments.nvim' }
+
   use { -- Tree UI widget to file navigation
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -110,6 +112,8 @@ require('packer').startup(function(use)
   use 'google/vim-maktaba'
   use 'google/vim-codefmt'
   use 'google/vim-glaive'
+
+  use 'christoomey/vim-tmux-navigator'
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
