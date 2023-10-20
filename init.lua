@@ -631,4 +631,6 @@ require("symbols-outline").setup()
 
 require'barbar'.setup()
 
+require'todo-comments'.setup()
+
 -- vim: ts=2 sw=2 et
