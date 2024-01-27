@@ -55,15 +55,18 @@ require('packer').startup(function(use)
 
   use { 'folke/todo-comments.nvim' }
 
-  use { -- Tree UI widget to file navigation
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-
   use 'simrat39/symbols-outline.nvim'
+
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+  }
 
   use {
     'akinsho/flutter-tools.nvim',
@@ -533,8 +536,7 @@ require("flutter-tools").setup {}
 require('nvim-highlight-colors').setup {}
 
 local opts = { noremap = true, silent = true }
-require("nvim-tree").setup()
-vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)
+-- vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)
 
 require("formatter").setup {
   -- Enable or disable logging
