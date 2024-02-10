@@ -536,7 +536,7 @@ require("flutter-tools").setup {}
 require('nvim-highlight-colors').setup {}
 
 local opts = { noremap = true, silent = true }
--- vim.keymap.set('n', '<C-n>', '<Cmd>NvimTreeToggle<CR>', opts)
+vim.keymap.set('n', '<C-n>', '<Cmd>Neotree toggle<CR>', opts)
 
 require("formatter").setup {
   -- Enable or disable logging
