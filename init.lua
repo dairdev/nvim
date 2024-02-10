@@ -57,6 +57,8 @@ require('packer').startup(function(use)
 
   use 'simrat39/symbols-outline.nvim'
 
+  use 'windwp/nvim-ts-autotag'
+
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -634,5 +636,7 @@ require("symbols-outline").setup()
 require'barbar'.setup()
 
 require'todo-comments'.setup()
+
+require'nvim-ts-autotag'.setup()
 
 -- vim: ts=2 sw=2 et
