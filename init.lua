@@ -654,4 +654,12 @@ require'todo-comments'.setup()
 
 require'nvim-ts-autotag'.setup()
 
+local navic = require("nvim-navic")
+
+require("lspconfig").tsserver.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
+
 -- vim: ts=2 sw=2 et
