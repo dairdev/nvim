@@ -662,4 +662,10 @@ require("lspconfig").tsserver.setup {
     end
 }
 
+require("lspconfig").lua_ls.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
+
 -- vim: ts=2 sw=2 et
