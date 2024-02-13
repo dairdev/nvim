@@ -433,6 +433,7 @@ require('mason').setup()
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
+local navic = require("nvim-navic")
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
@@ -656,6 +657,5 @@ require'todo-comments'.setup()
 
 require'nvim-ts-autotag'.setup()
 
-local navic = require("nvim-navic")
 
 -- vim: ts=1 sw=2 et
