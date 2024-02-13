@@ -61,6 +61,11 @@ require('packer').startup(function(use)
     end
   })
 
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+
   use { 'mhartington/formatter.nvim' }
 
   use { 'folke/todo-comments.nvim' }
