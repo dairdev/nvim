@@ -367,6 +367,8 @@ local on_attach = function(_, bufnr)
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+
+    navic.attach(client, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -656,22 +658,4 @@ require'nvim-ts-autotag'.setup()
 
 local navic = require("nvim-navic")
 
-require("lspconfig").tsserver.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
-}
-
-require("lspconfig").lua_ls.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
-}
-
-require("lspconfig").intelephense.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
-}
-
--- vim: ts=2 sw=2 et
+-- vim: ts=1 sw=2 et
