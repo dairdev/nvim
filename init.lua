@@ -98,7 +98,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
   use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use 'romgrk/barbar.nvim'
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -652,8 +651,6 @@ require('lualine').setup {
 }
 
 require("symbols-outline").setup()
-
-require'barbar'.setup()
 
 require'todo-comments'.setup()
 
