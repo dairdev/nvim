@@ -369,7 +369,9 @@ local on_attach = function(client, bufnr)
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 
-    navic.attach(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
