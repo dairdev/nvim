@@ -648,6 +648,16 @@ require('lualine').setup {
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
+  winbar = {
+    lualine_c = {
+      {
+        "navic",
+        color_correction = nil,
+        navic_opts = nil,
+        theme='dracula-nvim'
+      }
+    }
+  }
 }
 
 require("symbols-outline").setup()
@@ -655,6 +665,5 @@ require("symbols-outline").setup()
 require'todo-comments'.setup()
 
 require'nvim-ts-autotag'.setup()
-
 
 -- vim: ts=1 sw=2 et
