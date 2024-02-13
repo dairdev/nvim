@@ -668,4 +668,10 @@ require("lspconfig").lua_ls.setup {
     end
 }
 
+require("lspconfig").intelephense.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
+}
+
 -- vim: ts=2 sw=2 et
