@@ -667,4 +667,6 @@ require'todo-comments'.setup()
 
 require'nvim-ts-autotag'.setup()
 
+require'barbar'.setup()
+
 -- vim: ts=1 sw=2 et
