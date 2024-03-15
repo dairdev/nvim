@@ -116,7 +116,6 @@ require('packer').startup(function(use)
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
       require("nvim-surround").setup{
-        -- Configuration here, or leave empty to use defaults
       }
     end
   })
@@ -128,6 +127,7 @@ require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use 'marko-cerovac/material.nvim'
   use 'Mofiqul/dracula.nvim'
+  use 'ofirgall/ofirkai.nvim'
 
   use 'google/vim-maktaba'
   use 'google/vim-codefmt'
@@ -353,6 +353,9 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 local navic = require("nvim-navic")
+navic.setup {
+	separator = "  "
+}
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(client, bufnr)
@@ -637,17 +640,21 @@ require('material').setup({
 local dracula = require("dracula")
 dracula.setup()
 
-vim.cmd [[colorscheme dracula]]
+vim.cmd [[colorscheme ofirkai-darkblue]]
 -- vim.g.material_style = "deep ocean"
 
+local ofirkai_lualine = require('ofirkai.statuslines.lualine')
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
-    icons_enabled = false,
-    theme = 'dracula-nvim',
+    icons_enabled = true,
+    color = ofirkai_lualine.winbar_color,
     component_separators = '',
     section_separators = { left = '', right = '' },
+    disabled_filetypes = { -- Recommended filetypes to disable winbar
+      winbar = { 'gitcommit', 'NvimTree', 'toggleterm', 'fugitive' },
+    },
   },
   winbar = {
     lualine_c = {
@@ -655,7 +662,7 @@ require('lualine').setup {
         "navic",
         color_correction = nil,
         navic_opts = nil,
-        theme='dracula-nvim'
+        color=ofirkai_lualine.winbar_color
       }
     }
   }
