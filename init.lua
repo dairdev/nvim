@@ -640,7 +640,7 @@ require('material').setup({
 local dracula = require("dracula")
 dracula.setup()
 
-vim.cmd [[colorscheme ofirkai-darkblue]]
+vim.cmd [[colorscheme dracula]]
 -- vim.g.material_style = "deep ocean"
 
 local ofirkai_lualine = require('ofirkai.statuslines.lualine')
