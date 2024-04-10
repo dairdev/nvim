@@ -125,6 +125,12 @@ require('packer').startup(function(use)
   use 'MunifTanjim/prettier.nvim'
   use 'brenoprata10/nvim-highlight-colors'
 
+  use {
+  "loctvl842/monokai-pro.nvim",
+  config = function()
+    require("monokai-pro").setup()
+  end
+}
   use 'navarasu/onedark.nvim'
   use 'marko-cerovac/material.nvim'
   use 'Mofiqul/dracula.nvim'
@@ -288,7 +294,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'javascript', 'python', 'rust', 'tsx','typescript', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'javascript', 'php', 'python', 'rust', 'tsx','typescript', 'vim' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
