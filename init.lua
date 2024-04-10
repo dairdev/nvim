@@ -469,6 +469,12 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
 cmp.setup {
+  window = {
+    border = "rounded",
+  },
+  completion = {
+    border = "rounded",
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -647,7 +653,10 @@ require('material').setup({
 local dracula = require("dracula")
 dracula.setup()
 
-vim.cmd [[colorscheme dracula]]
+require("monokai-pro").setup({
+})
+
+vim.cmd [[colorscheme monokai-pro]]
 -- vim.g.material_style = "deep ocean"
 
 local ofirkai_lualine = require('ofirkai.statuslines.lualine')
