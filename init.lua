@@ -135,6 +135,7 @@ require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'ofirgall/ofirkai.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use 'google/vim-maktaba'
   use 'google/vim-codefmt'
@@ -645,8 +646,6 @@ require('material').setup({
 
   async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
-  custom_colors = nil, -- If you want to override the default colors, set this to a function
-
   custom_highlights = {}, -- Overwrite highlights with your own
 })
 
@@ -656,16 +655,16 @@ dracula.setup()
 require("monokai-pro").setup({
 })
 
-vim.cmd [[colorscheme monokai-pro]]
--- vim.g.material_style = "deep ocean"
+-- vim.cmd [[colorscheme "catppuccin-macchiato"]]
+vim.cmd.colorscheme "catppuccin-macchiato"
 
-local ofirkai_lualine = require('ofirkai.statuslines.lualine')
+-- local ofirkai_lualine = require('ofirkai.statuslines.lualine')
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
+    theme = "catppuccin",
     icons_enabled = true,
-    color = ofirkai_lualine.winbar_color,
     component_separators = '',
     section_separators = { left = '', right = '' },
     disabled_filetypes = { -- Recommended filetypes to disable winbar
@@ -678,7 +677,6 @@ require('lualine').setup {
         "navic",
         color_correction = nil,
         navic_opts = nil,
-        color=ofirkai_lualine.winbar_color
       }
     }
   }
