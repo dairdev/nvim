@@ -139,7 +139,6 @@ require('packer').startup(function(use)
     require("monokai-pro").setup()
   end
 }
-  use 'navarasu/onedark.nvim'
   use 'marko-cerovac/material.nvim'
   use 'Mofiqul/dracula.nvim'
   use 'ofirgall/ofirkai.nvim'
