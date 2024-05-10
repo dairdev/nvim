@@ -60,6 +60,8 @@ require('packer').startup(function(use)
         end,
     }
 
+  use { 'joeveiga/ng.nvim'}
+
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
