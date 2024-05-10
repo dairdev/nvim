@@ -44,7 +44,12 @@ require('packer').startup(function(use)
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      "roobert/tailwindcss-colorizer-cmp.nvim",
+    },
   }
 
   use {
@@ -476,6 +481,7 @@ require('fidget').setup()
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local tailwindcss = require 'tailwindcss-colorizer-cmp'
 
 cmp.setup {
   window = {
@@ -520,6 +526,10 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
+}
+
+cmp.config.formatting = {
+  format = tailwindcss
 }
 
 local null_ls = require("null-ls")
