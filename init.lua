@@ -139,14 +139,6 @@ require('packer').startup(function(use)
   use 'brenoprata10/nvim-highlight-colors'
 
   use {
-    "rest-nvim/rest.nvim",
-    rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },
-    config = function()
-      require("rest-nvim").setup()
-    end,
-  }
-
-  use {
   "loctvl842/monokai-pro.nvim",
   config = function()
     require("monokai-pro").setup()
