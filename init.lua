@@ -87,6 +87,12 @@ require('packer').startup(function(use)
   use { 'folke/todo-comments.nvim' }
 
   -- use 'simrat39/symbols-outline.nvim'
+  use({
+    "rushjs1/clock.nvim",
+    config = function()
+      require("clock").setup({})
+    end,
+  })
 
   use 'windwp/nvim-ts-autotag'
 
