@@ -436,24 +436,6 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
-local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  tsserver = {
-    hostInfo = "neovim"
-  },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      diagnostics = { disable = { 'missing-fields' } },
-    },
-  },
-}
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 --
@@ -468,15 +450,25 @@ require('mason').setup()
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = {
+    "lua_ls",
+					"pyright",
+					"ts_ls",
+					"eslint",
+					"tailwindcss",
+					"emmet_language_server",
+					"jsonls",
+  }
 }
 
 mason_lspconfig.setup_handlers {
   function(server_name)
+    if server_name == "tsserver" then
+						server_name = "ts_ls"
+					end
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = servers[server_name],
     }
   end,
 }
@@ -657,5 +649,10 @@ require'todo-comments'.setup()
 require'nvim-ts-autotag'.setup()
 
 require'barbar'.setup()
+
+require'neodb'
+
+-- nnoremap gp :silent %!prettier --stdin-filepath %<CR>
+vim.keymap.set('n', '<leader>gp', ':silent %!prettier --stdin-filepath %<CR>')
 
 -- vim: ts=1 sw=2 et
